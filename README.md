@@ -1,93 +1,100 @@
 # 🎯 Alışkanlık Takip Sistemi (Habit Tracker)
 
-Bu proje, kullanıcıların günlük, haftalık ve sayısal hedeflere dayalı alışkanlıklarını planlamalarını, takip etmelerini ve istatistiklerini raporlamalarını sağlayan **Java** tabanlı bir masaüstü uygulamasıdır. Proje hem **Konsol (CLI)** hem de görsel **Grafiksel Arayüz (Swing GUI)** sunmaktadır.
-
-Proje, Nesne Yönelimli Programlama (OOP) prensiplerini ve Java programlama dilinin temel yapı taşlarını uygulamalı olarak göstermek amacıyla geliştirilmiştir.
+Bu proje, kullanıcıların sağlıklı yaşam, eğitim ve kariyer hedefleri doğrultusunda alışkanlıklarını planlamalarını, günlük veya haftalık olarak takip etmelerini ve ilerlemelerini raporlamalarını sağlayan **Java** tabanlı bir masaüstü uygulamasıdır. Proje, hem kullanıcı dostu **Grafiksel Arayüz (Swing GUI)** hem de hafif **Konsol Arayüzü (CLI)** sunmaktadır.
 
 ---
 
-## 🚀 Özellikler
-
-* **Çoklu Alışkanlık Türleri**:
-  * **Günlük Alışkanlıklar**: Her gün tekrarlanan ve haftalık gün hedefi olan alışkanlıklar (örn: Kitap Okumak).
-  * **Haftalık Alışkanlıklar**: Haftanın belirli günlerinde yapılması hedeflenen alışkanlıklar (örn: Pazartesi ve Cuma günleri Spor Yapmak).
-  * **Sayısal Alışkanlıklar**: Değer ve birim bazlı hedefleri olan alışkanlıklar (örn: 10000 Adım Atmak, 2 Litre Su İçmek).
-* **Kategori Yönetimi**: Alışkanlıkları "Sağlık", "Eğitim", "İş", "Sosyal" ve "Kişisel" gibi renk kodlu kategorilere ayırma.
-* **Detaylı İstatistik Raporlama**: Son 7 günün tamamlama oranları, başarı yüzdesi ve sayısal ortalamalar.
-* **JSON Tabanlı Kalıcı Hafıza**: Verilerin kapatıldığında otomatik kaydedilip açıldığında geri yüklenmesi (Google Gson entegrasyonu ile).
-* **Çift Arayüz Desteği**: İster terminal üzerinden konsol menüsüyle, ister görsel Swing penceresiyle kullanım.
+## 📋 İçindekiler
+1. [Proje Açıklaması](#-proje-açıklaması)
+2. [Kullanılan Teknolojiler](#-kullanılan-teknolojiler)
+3. [Kurulum (Installation)](#-kurulum-installation)
+4. [Kullanım (Usage)](#-kullanım-usage)
+5. [Nesne Yönelimli Programlama (OOP) Yapısı](#-nesne-yönelimli-programlama-oop-yapısı)
+6. [Değerlendirme Kriterleri ve Akademik Artılar](#-değerlendirme-kriterleri-ve-akademik-artılar)
 
 ---
 
-## 🛠️ Kullanılan Teknolojiler ve Yapı
+## 🔍 Proje Açıklaması
+
+Alışkanlık Takip Sistemi, kullanıcıların rutinlerini üç ana grupta sınıflandırarak takip etmesine olanak tanır:
+1. **Günlük Alışkanlıklar**: Haftalık gün hedefi olan rutinler (örn. Her gün 30 sayfa kitap oku - haftada 7 gün).
+2. **Haftalık Alışkanlıklar**: Haftanın belirli günlerinde yapılması hedeflenen rutinler (örn. Pazartesi, Çarşamba, Cuma günleri spor yap).
+3. **Sayısal Alışkanlıklar**: Belirli bir hedef miktar ve birimi olan rutinler (örn. Günde 10000 adım at, 3 litre su iç).
+
+Veriler, uygulama kapatıldığında kaybolmaması için yerel diske **JSON** formatında serileştirilerek (`Gson` ile) kaydedilir.
+
+---
+
+## 🛠️ Kullanılan Teknolojiler
 
 * **Dil**: Java (SE 21 ve üzeri önerilir)
-* **Kütüphaneler**: [Google Gson 2.10.1](https://github.com/google/gson) (JSON Serileştirme için)
-* **Arayüz Teknolojileri**: Java Swing & AWT (GUI için)
-* **Veri Yapıları**: `ArrayList`, `HashMap`, `HashSet`, Java Stream API ve Lambda İfadeleri.
+* **Kütüphaneler**: Google Gson (v2.10.1) - Nesne serileştirme ve kalıcı depolama için.
+* **Görsel Arayüz**: Java Swing ve AWT (Pencere, Tablo, Form ve Dialog bileşenleri).
+* **Derleme/Proje Yapısı**: Eclipse IDE standart proje yapısı.
 
 ---
 
-## 📐 Nesne Yönelimli Programlama (OOP) Prensipleri
+## ⚙️ Kurulum (Installation)
 
-Projede uygulanan temel OOP kavramları ve kod örneklerinin bulunduğu dosyalar:
-
-1. **Soyutlama (Abstraction) & Kalıtım (Inheritance)**:
-   * [Habit](src/Habit.java) sınıfı `abstract` (soyut) bir üst sınıf olarak tasarlanmış olup ortak alanları (`id`, `name`, `description`, `category`) içerir.
-   * [DailyHabit](src/DailyHabit.java), [WeeklyHabit](src/WeeklyHabit.java) ve [NumericHabit](src/NumericHabit.java) sınıfları bu sınıftan türemiştir.
-
-2. **Çok Biçimlilik (Polymorphism)**:
-   * [HabitTracker](src/HabitTracker.java) sınıfındaki metotlar, dinamik olarak çalışma zamanında alt sınıfların davranışlarını çağırır (Dynamic Method Dispatch). 
-   * JSON serileştirme ve geri yükleme işlemlerinde polimorfik yapıyı kaybetmemek adına özel bir Gson `TypeAdapter` (`HabitAdapter`) yazılmıştır.
-
-3. **Kapsülleme (Encapsulation)**:
-   * Tüm model sınıflarındaki veri alanları `private` olarak tanımlanmış, verilere erişim kontrollü `getter` ve `setter` metotları ile sağlanmıştır.
-
-4. **Arayüz Kontratları (Interfaces)**:
-   * [Trackable](src/Trackable.java): Alışkanlıkların tamamlanma durumunu izlemek ve istatistik hesaplamak için gerekli kontratı belirler.
-   * [Reportable](src/Reportable.java): Alışkanlıklar için özet ve detaylı rapor çıktısı alma standartlarını tanımlar.
-
-5. **Özel Hata Yönetimi (Custom Exceptions)**:
-   * [HabitNotFoundException](src/HabitNotFoundException.java) ve [InvalidHabitDataException](src/InvalidHabitDataException.java) sınıfları ile uygulama içi mantıksal hatalar `try-catch` bloklarıyla güvenli şekilde yakalanır.
-
----
-
-## 📁 Sınıf ve Dosya Yapısı
-
-```text
-HabitTracker/
-│
-├── src/
-│   ├── Category.java                  # Alışkanlık kategorilerini temsil eder
-│   ├── Trackable.java                 # Takip kontratını belirleyen interface
-│   ├── Reportable.java                # Raporlama kontratını belirleyen interface
-│   │
-│   ├── Habit.java                     # Temel soyut (abstract) Alışkanlık sınıfı
-│   ├── DailyHabit.java                # Günlük alışkanlık modeli
-│   ├── WeeklyHabit.java               # Haftalık alışkanlık modeli
-│   ├── NumericHabit.java              # Sayısal alışkanlık modeli
-│   │
-│   ├── HabitTracker.java              # Veri yönetimini ve JSON kayıt işlemlerini yapar
-│   ├── HabitTrackerApp.java           # Konsol (CLI) tabanlı giriş noktası
-│   ├── HabitTrackerGUI.java           # Görsel (Swing GUI) tabanlı giriş noktası
-│   │
-│   ├── HabitNotFoundException.java    # Alışkanlık bulunamadığında fırlatılan hata
-│   └── InvalidHabitDataException.java # Geçersiz veri girişlerinde fırlatılan hata
-│
-└── README.md                          # Proje tanıtım dosyası
-```
-
----
-
-## 🔧 Kurulum ve Çalıştırma
-
-### Bağımlılıkların Eklenmesi (Google Gson)
-Projenin çalışabilmesi için **Google Gson** kütüphanesinin projeye dahil edilmesi gerekir.
+### 1. Bağımlılıkların Yüklenmesi (Google Gson)
+Uygulama, verileri JSON formatında okuyup yazmak için `Gson` kütüphanesine ihtiyaç duyar.
 1. [Gson JAR (v2.10.1)](https://repo1.maven.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar) dosyasını indirin.
-2. Kullandığınız IDE'de (Eclipse/IntelliJ) projenizin **Build Path** ayarlarına girerek bu JAR dosyasını **External JARs** olarak ekleyin.
+2. IDE'nizde (Eclipse/IntelliJ) projenizin üzerine sağ tıklayın:
+   * **Eclipse**: `Build Path` -> `Configure Build Path...` -> `Libraries` sekmesi -> `Classpath` seçin -> `Add External JARs...` butonuna tıklayıp indirdiğiniz `.jar` dosyasını seçin. `Apply and Close` diyerek onaylayın.
+   * **IntelliJ**: `File` -> `Project Structure` -> `Libraries` -> `+ (New Project Library)` -> `Java` seçin ve indirdiğiniz `.jar` dosyasını ekleyin.
 
-### Uygulamayı Çalıştırma
-* **Konsol Sürümü İçin**: `HabitTrackerApp.java` sınıfını çalıştırın.
-* **Görsel Arayüz (GUI) İçin**: `HabitTrackerGUI.java` sınıfını çalıştırın.
+### 2. Projenin Çalıştırılması
+* Grafik Arayüz için: `src/HabitTrackerGUI.java` dosyasını açıp **Run** butonuna basın.
+* Konsol Arayüzü için: `src/HabitTrackerApp.java` dosyasını açıp **Run** butonuna basın.
 
-Uygulama çalıştırıldığında verileri otomatik olarak kaydetmek için proje dizininde bir `habits_data.json` dosyası oluşturacaktır.
+---
+
+## 💡 Kullanım (Usage)
+
+### A. Grafiksel Arayüz (GUI) Kullanımı
+Uygulama açıldığında karşınıza kayıtlı alışkanlıkların listelendiği bir tablo gelir:
+
+1. **Yeni Alışkanlık Ekleme**:
+   * Alt kısımdaki **"+ Yeni Ekle"** butonuna tıklayın.
+   * Açılan pencerede alışkanlığın adını, açıklamasını, tipini (Günlük, Haftalık, Sayısal) ve kategorisini seçin.
+   * Seçilen tipe göre hedef gün sayısını, hedef gün isimlerini (virgülle ayırarak) veya hedef sayısal değeri girip **"Kaydet"** butonuna basın.
+2. **Tamamlama İşareti Koyma**:
+   * Tablodan tamamlamak istediğiniz alışkanlığı seçin.
+   * **"✓ Bugün Tamamla"** butonuna basın.
+   * Eğer seçilen alışkanlık *Sayısal* ise sistem bugün gerçekleştirdiğiniz değeri soracaktır (örn: 8000 adım). Girilen değer hedefe ulaştığında veya aştığında alışkanlık tamamlandı sayılır.
+3. **Alışkanlık Silme**:
+   * Listeden bir alışkanlık seçip **"✗ Sil"** butonuna basın ve onaylayın.
+4. **İstatistikleri Görüntüleme**:
+   * **"İstatistikler"** butonuna tıklayarak başarı oranlarını, toplam tamamlama günlerini ve son 7 günün detaylı analiz raporunu görebilirsiniz.
+
+### B. Konsol Arayüzü (CLI) Kullanımı
+Terminal üzerinden uygulamayı başlattığınızda karşınıza `0-9` arası seçim yapabileceğiniz bir menü çıkar. Yönergeleri takip ederek klavyeden girdi sağlayıp tüm işlemleri konsol üzerinden de gerçekleştirebilirsiniz.
+
+---
+
+## 📐 Nesne Yönelimli Programlama (OOP) Yapısı
+
+Uygulama, akademik değerlendirmede yüksek not almayı sağlayacak düzeyde temiz ve kurallara uygun bir OOP mimarisine sahiptir:
+
+1. **Soyut Sınıf (Abstract Class - Abstraction)**:
+   * [Habit](src/Habit.java) sınıfı `abstract` olarak tasarlanmıştır. Ortak nitelikleri barındırır fakat doğrudan nesnesi üretilemez.
+2. **Kalıtım (Inheritance)**:
+   * [DailyHabit](src/DailyHabit.java), [WeeklyHabit](src/WeeklyHabit.java) ve [NumericHabit](src/NumericHabit.java) sınıfları `Habit` sınıfından kalıtım (`extends`) alarak türetilmiştir.
+3. **Çok Biçimlilik (Polymorphism)**:
+   * `HabitTracker` sınıfı içindeki listelerde tüm alışkanlıklar `Habit` referans tipiyle tutulur. Çalışma zamanında (Runtime) her sınıfa özgü `calculateStats()` veya `getHabitType()` metodu otomatik çağrılır (Dinamik Bağlama).
+4. **Arayüzler (Interfaces)**:
+   * [Trackable](src/Trackable.java) ve [Reportable](src/Reportable.java) interface'leri ile sistemdeki alışkanlıkların izleme ve raporlama standartları garanti altına alınmıştır.
+5. **Kapsülleme (Encapsulation)**:
+   * Tüm değişkenler `private` veya `protected` anahtar kelimeleriyle korunur, verilere erişim `getter/setter` metotları ile sınırlandırılmıştır.
+6. **Özel Hata Sınıfları (Custom Exception Handling)**:
+   * Mantıksal hataları yakalamak için [HabitNotFoundException](src/HabitNotFoundException.java) ve [InvalidHabitDataException](src/InvalidHabitDataException.java) yazılmıştır.
+
+---
+
+## 🎓 Değerlendirme Kriterleri ve Akademik Artılar
+
+Projenin jüri tarafından değerlendirilmesinde öne çıkacak güçlü yönleri:
+
+* **Polimorfik Veri Serileştirme (Custom GSON Adapter)**: Soyut bir sınıfın alt sınıflarını veri kaybı yaşamadan JSON olarak kaydedip geri yükleyebilmek için yazılmış olan `HabitAdapter` jüriye sunulabilecek ileri düzey bir tekniktir.
+* **Girdi Doğrulama (Input Validation)**: Hatalı kullanıcı girdilerinde sistemin çökmesini engelleyen kapsamlı `try-catch` blokları ve veri kontrol mekanizmaları mevcuttur.
+* **Modüler Mimari**: Arayüz katmanları (GUI ve CLI) ile iş mantığının (Business Logic) yer aldığı sınıflar birbirinden tamamen izole edilmiştir.
