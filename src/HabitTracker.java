@@ -5,10 +5,8 @@ import java.util.*;
 /**
  * HabitTracker Sınıfı
  * Tüm alışkanlıkları yönetir ve JSON dosya işlemlerini gerçekleştirir
- * Polymorphism kullanımı: Habit tipinde referanslarla farklı türdeki alışkanlıkları yönetir
  */
 public class HabitTracker {
-    // Private alanlar (Encapsulation)
     private List<Habit> habits;
     private List<Category> categories;
     private String dataFilePath;
@@ -43,7 +41,7 @@ public class HabitTracker {
     }
     
     /**
-     * Yeni alışkanlık ekler (Polymorphism: Habit tipinde parametre)
+     * Yeni alışkanlık ekler
      * @param habit Eklenecek alışkanlık
      */
     public void addHabit(Habit habit) throws InvalidHabitDataException {
@@ -95,13 +93,13 @@ public class HabitTracker {
     }
     
     /**
-     * Kategoriye göre alışkanlıkları filtreler (Polymorphism örneği)
+     * Kategoriye göre alışkanlıkları filtreler
      * @param categoryName Kategori adı
      * @return Filtrelenmiş alışkanlık listesi
      */
     public List<Habit> getHabitsByCategory(String categoryName) {
         List<Habit> result = new ArrayList<>();
-        for (Habit habit : habits) { // Habit tipinde referans kullanımı
+        for (Habit habit : habits) {
             if (habit.getCategory().getName().equalsIgnoreCase(categoryName)) {
                 result.add(habit);
             }
@@ -150,7 +148,6 @@ public class HabitTracker {
     
     /**
      * Verileri JSON dosyasına kaydeder
-     * Exception Handling: try-catch kullanımı
      */
     public void saveToFile() {
         try {
@@ -185,7 +182,6 @@ public class HabitTracker {
     
     /**
      * JSON dosyasından verileri yükler
-     * Exception Handling: try-catch kullanımı
      */
     public void loadFromFile() {
         try {
@@ -243,14 +239,14 @@ public class HabitTracker {
     }
     
     /**
-     * Genel rapor üretir (Polymorphism: Reportable interface kullanımı)
+     * Genel rapor üretir
      * @return Rapor metni
      */
     public String generateOverallReport() {
         StringBuilder report = new StringBuilder();
         report.append("\n");
         report.append("═".repeat(60)).append("\n");
-        report.append("           ALIŞ KANLIK TAKİP SİSTEMİ - GENEL RAPOR\n");
+        report.append("           ALIŞKANLIK TAKİP SİSTEMİ - GENEL RAPOR\n");
         report.append("═".repeat(60)).append("\n\n");
         
         report.append("Toplam Alışkanlık: ").append(habits.size()).append("\n");
@@ -269,7 +265,7 @@ public class HabitTracker {
         
         report.append("\n--- Alışkanlık Detayları ---\n");
         for (int i = 0; i < habits.size(); i++) {
-            Habit habit = habits.get(i); // Polymorphism: Habit referansı
+            Habit habit = habits.get(i);
             report.append(String.format("\n%d. %s\n", i + 1, habit.getSummary()));
         }
         

@@ -1,10 +1,8 @@
 /**
  * Category Sınıfı
  * Alışkanlıkları kategorize etmek için kullanılır.
- * Encapsulation örneği: private alanlar ve getter/setter metodları
  */
 public class Category {
-    // Private alanlar (Encapsulation)
     private String name;
     private String color;
     private String description;
@@ -30,7 +28,6 @@ public class Category {
         this.description = description;
     }
     
-    // Getter metodları
     public String getName() {
         return name;
     }
@@ -43,7 +40,6 @@ public class Category {
         return description;
     }
     
-    // Setter metodları
     public void setName(String name) {
         this.name = name;
     }

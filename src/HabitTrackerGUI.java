@@ -35,13 +35,13 @@ public class HabitTrackerGUI extends JFrame {
     private void initComponents() {
         setLayout(new BorderLayout(5, 5));
 
-        // --- Üst başlık ---
+        // Üst başlık
         JLabel titleLabel = new JLabel("Alışkanlık Takip Sistemi", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 5, 0));
         add(titleLabel, BorderLayout.NORTH);
 
-        // --- Orta: tablo ---
+        // Orta: tablo
         tableModel = new DefaultTableModel(COLUMNS, 0) {
             @Override
             public boolean isCellEditable(int row, int col) {
@@ -79,7 +79,7 @@ public class HabitTrackerGUI extends JFrame {
 
         add(buttonPanel, BorderLayout.SOUTH);
 
-        // --- Olay dinleyicileri ---
+        // Olay dinleyicileri
         addBtn.addActionListener(e -> showAddDialog());
         doneBtn.addActionListener(e -> markTodayComplete());
         deleteBtn.addActionListener(e -> deleteSelectedHabit());
@@ -105,9 +105,7 @@ public class HabitTrackerGUI extends JFrame {
         }
     }
 
-    // ---------------------------------------------------------------
     // Yeni alışkanlık ekle dialog'u
-    // ---------------------------------------------------------------
     private void showAddDialog() {
         JDialog dialog = new JDialog(this, "Yeni Alışkanlık Ekle", true);
         dialog.setSize(420, 380);
@@ -130,7 +128,7 @@ public class HabitTrackerGUI extends JFrame {
         // Tip
         form.add(new JLabel("Tip:"));
         JComboBox<String> typeBox = new JComboBox<>(
-            new String[]{"Günlük (Daily)", "Haftalık (Weekly)", "Sayısal (Numeric)"});
+            new String[]{"Günlük", "Haftalık", "Sayısal"});
         form.add(typeBox);
 
         // Kategori
@@ -146,8 +144,8 @@ public class HabitTrackerGUI extends JFrame {
         form.add(extraLabel);
         form.add(extraField);
 
-        // Birim alanı (sadece Numeric için aktif)
-        form.add(new JLabel("Birim (Numeric için):"));
+        // Birim alanı (sadece Sayısal için aktif)
+        form.add(new JLabel("Birim (Sayısal için):"));
         JTextField unitField = new JTextField("birim");
         form.add(unitField);
 
@@ -239,9 +237,7 @@ public class HabitTrackerGUI extends JFrame {
         dialog.setVisible(true);
     }
 
-    // ---------------------------------------------------------------
     // Seçili alışkanlığı bugün için tamamla
-    // ---------------------------------------------------------------
     private void markTodayComplete() {
         int row = habitTable.getSelectedRow();
         if (row < 0) {
@@ -288,9 +284,7 @@ public class HabitTrackerGUI extends JFrame {
             "Tamamlandı", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    // ---------------------------------------------------------------
     // Seçili alışkanlığı sil
-    // ---------------------------------------------------------------
     private void deleteSelectedHabit() {
         int row = habitTable.getSelectedRow();
         if (row < 0) {
@@ -320,9 +314,7 @@ public class HabitTrackerGUI extends JFrame {
         }
     }
 
-    // ---------------------------------------------------------------
     // İstatistikler dialog'u
-    // ---------------------------------------------------------------
     private void showStatsDialog() {
         String report = tracker.generateOverallReport();
 
@@ -337,9 +329,7 @@ public class HabitTrackerGUI extends JFrame {
             "Genel İstatistik Raporu", JOptionPane.PLAIN_MESSAGE);
     }
 
-    // ---------------------------------------------------------------
     // main
-    // ---------------------------------------------------------------
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {

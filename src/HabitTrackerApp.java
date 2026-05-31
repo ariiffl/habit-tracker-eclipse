@@ -4,7 +4,6 @@ import java.util.*;
 /**
  * HabitTrackerApp - Ana Uygulama Sınıfı
  * Console tabanlı kullanıcı arayüzü sağlar
- * Exception Handling ve tüm OOP prensiplerine uygun kullanım örnekleri içerir
  */
 public class HabitTrackerApp {
     private HabitTracker tracker;
@@ -28,7 +27,7 @@ public class HabitTrackerApp {
      */
     public void run() {
         System.out.println("\n╔═══════════════════════════════════════════╗");
-        System.out.println("║   ALIŞ KANLIK TAKİP SİSTEMİNE HOŞ GELDİNİZ   ║");
+        System.out.println("║   ALIŞKANLIK TAKİP SİSTEMİNE HOŞ GELDİNİZ   ║");
         System.out.println("╚═══════════════════════════════════════════╝\n");
         
         boolean running = true;
@@ -105,11 +104,11 @@ public class HabitTrackerApp {
     }
     
     /**
-     * Yeni alışkanlık ekler (Polymorphism örneği)
+     * Yeni alışkanlık ekler
      */
     private void addNewHabit() {
         try {
-            System.out.println("\n=== YENİ ALIŞ KANLIK EKLE ===\n");
+            System.out.println("\n=== YENİ ALIŞKANLIK EKLE ===\n");
             
             // Kategori seç
             Category category = selectCategory();
@@ -126,10 +125,10 @@ public class HabitTrackerApp {
             System.out.println("\nAlışkanlık Tipi:");
             System.out.println("1. Günlük Alışkanlık (Her gün tekrarlanır)");
             System.out.println("2. Haftalık Alışkanlık (Belirli günlerde tekrarlanır)");
-            System.out.println("3. Sayısal Alışkanlık (Hedef değer gerektir ir)");
+            System.out.println("3. Sayısal Alışkanlık (Hedef değer gerektirir)");
             int type = getIntInput("Tip seçin: ");
             
-            Habit habit = null; // Polymorphism: üst tip referans
+            Habit habit = null;
             
             switch (type) {
                 case 1:
@@ -163,7 +162,7 @@ public class HabitTrackerApp {
             }
             
             if (habit != null) {
-                tracker.addHabit(habit); // Polymorphism: Habit tipinde parametre
+                tracker.addHabit(habit);
                 tracker.saveToFile();
             }
             
@@ -175,7 +174,7 @@ public class HabitTrackerApp {
     }
     
     /**
-     * Tüm alışkanlıkları listeler (Polymorphism örneği)
+     * Tüm alışkanlıkları listeler
      */
     private void listAllHabits() {
         System.out.println("\n=== TÜM ALIŞKANLIKLAR ===\n");
@@ -187,10 +186,10 @@ public class HabitTrackerApp {
         }
         
         for (int i = 0; i < habits.size(); i++) {
-            Habit habit = habits.get(i); // Polymorphism: Habit referansı
+            Habit habit = habits.get(i);
             System.out.println((i + 1) + ". " + habit.toString());
             System.out.println("   ID: " + habit.getId());
-            System.out.println("   " + habit.getSummary()); // Reportable interface kullanımı
+            System.out.println("   " + habit.getSummary());
             System.out.println();
         }
     }
@@ -207,7 +206,7 @@ public class HabitTrackerApp {
             Habit habit = tracker.findHabitByName(name);
             String today = dateFormat.format(new Date());
             
-            boolean success = habit.markComplete(today); // Trackable interface kullanımı
+            boolean success = habit.markComplete(today);
             
             if (success) {
                 System.out.println("✓ Tebrikler! '" + habit.getName() + "' bugün için tamamlandı!");
@@ -230,9 +229,9 @@ public class HabitTrackerApp {
             List<Habit> allHabits = tracker.getAllHabits();
             List<NumericHabit> numericHabits = new ArrayList<>();
             
-            System.out.println("\n=== SAYISAL ALIŞ KANLIKLAR ===\n");
+            System.out.println("\n=== SAYISAL ALIŞKANLIKLAR ===\n");
             for (Habit habit : allHabits) {
-                if (habit instanceof NumericHabit) { // Tip kontrolü
+                if (habit instanceof NumericHabit) {
                     numericHabits.add((NumericHabit) habit);
                     System.out.println(numericHabits.size() + ". " + habit.getName() +
                         " (Hedef: " + ((NumericHabit) habit).getTargetValue() + 
@@ -279,7 +278,7 @@ public class HabitTrackerApp {
             String name = scanner.nextLine();
             
             Habit habit = tracker.findHabitByName(name);
-            System.out.println(habit.generateReport()); // Reportable interface kullanımı
+            System.out.println(habit.generateReport());
             
         } catch (HabitNotFoundException e) {
             System.out.println("✗ " + e.getMessage());

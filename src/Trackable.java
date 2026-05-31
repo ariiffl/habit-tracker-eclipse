@@ -1,7 +1,6 @@
 /**
  * Trackable Interface
  * Tüm takip edilebilir alışkanlıklar için temel davranış kontratını tanımlar.
- * Bu interface, polymorphism için temel yapıyı sağlar.
  */
 public interface Trackable {
     /**

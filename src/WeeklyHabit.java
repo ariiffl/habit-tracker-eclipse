@@ -4,7 +4,6 @@ import java.util.*;
 /**
  * WeeklyHabit Sınıfı
  * Haftalık olarak yapılan alışkanlıklar için kullanılır
- * Inheritance: Habit abstract sınıfından türer
  */
 public class WeeklyHabit extends Habit {
     private Set<String> targetDaysOfWeek; // "Pazartesi", "Salı", vs.
@@ -29,7 +28,6 @@ public class WeeklyHabit extends Habit {
         this.targetDaysOfWeek = targetDaysOfWeek;
     }
     
-    // Getter ve Setter
     public Set<String> getTargetDaysOfWeek() {
         return targetDaysOfWeek;
     }

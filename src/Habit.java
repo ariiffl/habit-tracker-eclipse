@@ -2,9 +2,7 @@ import java.util.*;
 
 /**
  * Habit Abstract Sınıfı
- * Tüm alışkanlık türleri için temel sınıf (Inheritance için üst sınıf)
- * Trackable ve Reportable interface'lerini implement eder (Interface kullanımı)
- * Encapsulation: private alanlar, getter/setter metodları
+ * Tüm alışkanlık türleri için temel sınıf.
  */
 public abstract class Habit implements Trackable, Reportable {
     private String id;
@@ -39,7 +37,6 @@ public abstract class Habit implements Trackable, Reportable {
         this.completionMap = new HashMap<>();
     }
     
-    // Getter metodları
     public String getId() {
         return id;
     }
@@ -64,7 +61,6 @@ public abstract class Habit implements Trackable, Reportable {
         return completionMap;
     }
     
-    // Setter metodları
     public void setId(String id) {
         this.id = id;
     }
@@ -89,7 +85,6 @@ public abstract class Habit implements Trackable, Reportable {
         this.completionMap = completionMap;
     }
     
-    // Trackable interface implementasyonu
     @Override
     public boolean markComplete(String date) {
         completionMap.put(date, true);
@@ -106,7 +101,6 @@ public abstract class Habit implements Trackable, Reportable {
         return (int) completionMap.values().stream().filter(v -> v).count();
     }
     
-    // Reportable interface implementasyonu
     @Override
     public String getSummary() {
         return String.format("%s (%s) - %d tamamlama", 
@@ -129,12 +123,11 @@ public abstract class Habit implements Trackable, Reportable {
         return report.toString();
     }
     
-    // Abstract metod - alt sınıflar kendi tipine göre implement edecek
     @Override
     public abstract String calculateStats();
     
     /**
-     * Alışkanlık tipini döndürür (Polymorphism için)
+     * Alışkanlık tipini döndürür
      * @return Alışkanlık tipi
      */
     public abstract String getHabitType();

@@ -4,7 +4,6 @@ import java.util.*;
 /**
  * DailyHabit Sınıfı
  * Günlük tekrarlanan alışkanlıklar için kullanılır
- * Inheritance: Habit abstract sınıfından türer
  */
 public class DailyHabit extends Habit {
     private int targetDaysPerWeek;
@@ -29,7 +28,6 @@ public class DailyHabit extends Habit {
         this.targetDaysPerWeek = targetDaysPerWeek;
     }
     
-    // Getter ve Setter
     public int getTargetDaysPerWeek() {
         return targetDaysPerWeek;
     }

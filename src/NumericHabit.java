@@ -4,7 +4,6 @@ import java.util.*;
 /**
  * NumericHabit Sınıfı
  * Sayısal hedef gerektiren alışkanlıklar için kullanılır (örn: 10000 adım, 2L su)
- * Inheritance: Habit abstract sınıfından türer
  */
 public class NumericHabit extends Habit {
     private double targetValue;
@@ -36,7 +35,6 @@ public class NumericHabit extends Habit {
         this.valueMap = new HashMap<>();
     }
     
-    // Getter ve Setter metodları
     public double getTargetValue() {
         return targetValue;
     }

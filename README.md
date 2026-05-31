@@ -1,20 +1,20 @@
-# 🎯 Alışkanlık Takip Sistemi (Habit Tracker)
+# Alışkanlık Takip Sistemi (Habit Tracker)
 
 Bu proje, kullanıcıların sağlıklı yaşam, eğitim ve kariyer hedefleri doğrultusunda alışkanlıklarını planlamalarını, günlük veya haftalık olarak takip etmelerini ve ilerlemelerini raporlamalarını sağlayan **Java** tabanlı bir masaüstü uygulamasıdır. Proje, hem kullanıcı dostu **Grafiksel Arayüz (Swing GUI)** hem de hafif **Konsol Arayüzü (CLI)** sunmaktadır.
 
 ---
 
-## 📋 İçindekiler
+## İçindekiler
 1. [Proje Açıklaması](#-proje-açıklaması)
 2. [Kullanılan Teknolojiler](#-kullanılan-teknolojiler)
-3. [Kurulum (Installation)](#-kurulum-installation)
-4. [Kullanım (Usage)](#-kullanım-usage)
-5. [Nesne Yönelimli Programlama (OOP) Yapısı](#-nesne-yönelimli-programlama-oop-yapısı)
+3. [Kurulum](#-kurulum-installation)
+4. [Kullanım](#-kullanım-usage)
+5. [Nesne Yönelimli Programlama Yapısı](#-nesne-yönelimli-programlama-oop-yapısı)
 6. [Değerlendirme Kriterleri ve Akademik Artılar](#-değerlendirme-kriterleri-ve-akademik-artılar)
 
 ---
 
-## 🔍 Proje Açıklaması
+## Proje Açıklaması
 
 Alışkanlık Takip Sistemi, kullanıcıların rutinlerini üç ana grupta sınıflandırarak takip etmesine olanak tanır:
 1. **Günlük Alışkanlıklar**: Haftalık gün hedefi olan rutinler (örn. Her gün 30 sayfa kitap oku - haftada 7 gün).
@@ -25,7 +25,7 @@ Veriler, uygulama kapatıldığında kaybolmaması için yerel diske **JSON** fo
 
 ---
 
-## 🛠️ Kullanılan Teknolojiler
+## Kullanılan Teknolojiler
 
 * **Dil**: Java (SE 21 ve üzeri önerilir)
 * **Kütüphaneler**: Google Gson (v2.10.1) - Nesne serileştirme ve kalıcı depolama için.
@@ -34,7 +34,7 @@ Veriler, uygulama kapatıldığında kaybolmaması için yerel diske **JSON** fo
 
 ---
 
-## ⚙️ Kurulum (Installation)
+## Kurulum (Installation)
 
 ### 1. Bağımlılıkların Yüklenmesi (Google Gson)
 Uygulama, verileri JSON formatında okuyup yazmak için `Gson` kütüphanesine ihtiyaç duyar.
@@ -49,7 +49,7 @@ Uygulama, verileri JSON formatında okuyup yazmak için `Gson` kütüphanesine i
 
 ---
 
-## 💡 Kullanım (Usage)
+## Kullanım
 
 ### A. Grafiksel Arayüz (GUI) Kullanımı
 Uygulama açıldığında karşınıza kayıtlı alışkanlıkların listelendiği bir tablo gelir:
@@ -72,7 +72,7 @@ Terminal üzerinden uygulamayı başlattığınızda karşınıza `0-9` arası s
 
 ---
 
-## 📐 Nesne Yönelimli Programlama (OOP) Yapısı
+## Nesne Yönelimli Programlama (OOP) Yapısı
 
 Uygulama, akademik değerlendirmede yüksek not almayı sağlayacak düzeyde temiz ve kurallara uygun bir OOP mimarisine sahiptir:
 
@@ -91,7 +91,7 @@ Uygulama, akademik değerlendirmede yüksek not almayı sağlayacak düzeyde tem
 
 ---
 
-## 🎓 Değerlendirme Kriterleri ve Akademik Artılar
+## Değerlendirme Kriterleri ve Akademik Artılar
 
 Projenin jüri tarafından değerlendirilmesinde öne çıkacak güçlü yönleri:
 
