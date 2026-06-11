@@ -74,8 +74,6 @@ Terminal üzerinden uygulamayı başlattığınızda karşınıza `0-9` arası s
 
 ## Nesne Yönelimli Programlama (OOP) Yapısı
 
-Uygulama, akademik değerlendirmede yüksek not almayı sağlayacak düzeyde temiz ve kurallara uygun bir OOP mimarisine sahiptir:
-
 1. **Soyut Sınıf (Abstract Class - Abstraction)**:
    * [Habit](src/Habit.java) sınıfı `abstract` olarak tasarlanmıştır. Ortak nitelikleri barındırır fakat doğrudan nesnesi üretilemez.
 2. **Kalıtım (Inheritance)**:
@@ -93,8 +91,6 @@ Uygulama, akademik değerlendirmede yüksek not almayı sağlayacak düzeyde tem
 
 ## Değerlendirme Kriterleri ve Akademik Artılar
 
-Projenin jüri tarafından değerlendirilmesinde öne çıkacak güçlü yönleri:
-
-* **Polimorfik Veri Serileştirme (Custom GSON Adapter)**: Soyut bir sınıfın alt sınıflarını veri kaybı yaşamadan JSON olarak kaydedip geri yükleyebilmek için yazılmış olan `HabitAdapter` jüriye sunulabilecek ileri düzey bir tekniktir.
+* **Polimorfik Veri Serileştirme (Custom GSON Adapter)**: Soyut bir sınıfın alt sınıflarını veri kaybı yaşamadan JSON olarak kaydedip geri yükleyebilmek için yazılmış olan `HabitAdapter` ileri düzey bir tekniktir.
 * **Girdi Doğrulama (Input Validation)**: Hatalı kullanıcı girdilerinde sistemin çökmesini engelleyen kapsamlı `try-catch` blokları ve veri kontrol mekanizmaları mevcuttur.
 * **Modüler Mimari**: Arayüz katmanları (GUI ve CLI) ile iş mantığının (Business Logic) yer aldığı sınıflar birbirinden tamamen izole edilmiştir.
